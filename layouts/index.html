@@ -23,8 +23,13 @@
             </div>
             <div class="post-footer">
                 <div class="meta">
-                    <div class="info"><em class="fas fa-calendar-day"></em><span
-                                class="date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
+                    <div class="info">
+                        <em class="fas fa-calendar-day"></em>
+                        <span class="date">
+                            {{ $month_names := slice "Ocak" "Şubat" "Mart" "Nisan" "Mayıs" "Haziran" "Temmuz" "Ağustos" "Eylül" "Ekim" "Kasım" "Aralık" }}
+                            {{ $month := sub .Date.Month 1 }}
+                            {{ .Date.Day }} {{ index $month_names $month }} {{ .Date.Year }}
+                        </span>
                         {{ with .Params.tags }}
                             {{- range $index, $el := . -}}
                                 <a class="tag"
