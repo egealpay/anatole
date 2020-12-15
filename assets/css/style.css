@@ -426,6 +426,11 @@ a:active {
 
 .info {
     margin: 1em;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .post .post-footer .meta a {

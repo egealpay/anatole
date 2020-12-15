@@ -24,18 +24,22 @@
             <div class="post-footer">
                 <div class="meta">
                     <div class="info">
-                        <em class="fas fa-calendar-day"></em>
-                        <span class="date">
-                            {{ $month_names := slice "Ocak" "Şubat" "Mart" "Nisan" "Mayıs" "Haziran" "Temmuz" "Ağustos" "Eylül" "Ekim" "Kasım" "Aralık" }}
-                            {{ $month := sub .Date.Month 1 }}
-                            {{ .Date.Day }} {{ index $month_names $month }} {{ .Date.Year }}
-                        </span>
-                        {{ with .Params.tags }}
-                            {{- range $index, $el := . -}}
-                                <a class="tag"
-                                   href="{{ ( printf "tags/%s/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a>
-                            {{- end -}}
-                        {{ end }}
+                        <div>
+                            <em class="fas fa-calendar-day"></em>
+                            <span class="date">
+                                {{ $month_names := slice "Ocak" "Şubat" "Mart" "Nisan" "Mayıs" "Haziran" "Temmuz" "Ağustos" "Eylül" "Ekim" "Kasım" "Aralık" }}
+                                {{ $month := sub .Date.Month 1 }}
+                                {{ .Date.Day }} {{ index $month_names $month }} {{ .Date.Year }}
+                            </span>
+                        </div>
+                        <div>
+                            {{ with .Params.tags }}
+                                {{- range $index, $el := . -}}
+                                    <a class="tag"
+                                       href="{{ ( printf "tags/%s/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a>
+                                {{- end -}}
+                            {{ end }}
+                        </div>
                     </div>
                 </div>
             </div>
