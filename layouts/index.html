@@ -35,7 +35,7 @@
                         <div>
                             {{ with .Params.tags }}
                                 {{- range $index, $el := . -}}
-                                    <a class="tag"
+                                    <a class="tag tag-button {{ . }}"
                                        href="{{ ( printf "tags/%s/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a>
                                 {{- end -}}
                             {{ end }}

@@ -71,9 +71,15 @@ blockquote {
     border: 1px solid var(--border-color);
 }
 
-.tag::before {
-    content: "#";
-    opacity: .5;
+.post .post-footer .meta .info a.tag.tag-button {
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+.post .post-footer .meta .info a.tag.tag-button.Shortcodes {
+    background-color: cadetblue;
+    color: white;
 }
 
 .tag,
