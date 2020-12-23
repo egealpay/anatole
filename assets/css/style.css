@@ -82,6 +82,17 @@ blockquote {
     color: white;
 }
 
+a.tag.tag-button {
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+a.tag.tag-button.Shortcodes {
+    background-color: cadetblue;
+    color: white;
+}
+
 .tag,
 .category {
     display: inline-block;

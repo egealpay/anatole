@@ -1,0 +1,51 @@
+{{ define "main" }}
+
+    <div class="post {{ with .Site.Params.doNotLoadAnimations }} . {{ else }} animated fadeInDown {{ end }}">
+        <!-- (Optional) Home
+            -- on top of `mainSections` content (aka posts) ;
+            -- as declared in content/_index.md
+
+            One can set `mainSections = [""]` and have the content/_index.md specified here
+        -->
+        {{ .Content }}
+    </div>
+
+    {{ $paginator := .Paginate (.Data.Pages) }}
+    {{ range $paginator.Pages }}
+
+        <div class="post {{ with .Site.Params.doNotLoadAnimations }} . {{ else }} animated fadeInDown {{ end }}">
+            <div class="post-title">
+                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h3>
+            </div>
+            <div class="post-content">
+                <div class="p_part"><p>{{ .Summary }}</p></div>
+            </div>
+            <div class="post-footer">
+                <div class="meta">
+                    <div class="info">
+                        <div>
+                            <em class="fas fa-calendar-day"></em>
+                            <span class="date">
+                                {{ $month_names := slice "Ocak" "Şubat" "Mart" "Nisan" "Mayıs" "Haziran" "Temmuz" "Ağustos" "Eylül" "Ekim" "Kasım" "Aralık" }}
+                                {{ $month := sub .Date.Month 1 }}
+                                {{ .Date.Day }} {{ index $month_names $month }} {{ .Date.Year }}
+                            </span>
+                        </div>
+                        <div>
+                            {{ with .Params.tags }}
+                                {{- range $index, $el := . -}}
+                                    <a class="tag tag-button {{ . }}"
+                                       href="{{ ( printf "tags/%s/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a>
+                                {{- end -}}
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{ end }}
+    <div class="pagination">
+        {{ template "_internal/pagination.html" . }}
+    </div>
+{{ end }}
