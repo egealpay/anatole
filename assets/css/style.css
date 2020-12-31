@@ -77,8 +77,8 @@ blockquote {
     border-radius: 10px;
 }
 
-.post .post-footer .meta .info a.tag.tag-button.Shortcodes {
-    background-color: cadetblue;
+.post .post-footer .meta .info a.tag.tag-button.HTML {
+    background-color: #e34c26;
     color: white;
 }
 
@@ -88,8 +88,8 @@ a.tag.tag-button {
     border-radius: 10px;
 }
 
-a.tag.tag-button.Shortcodes {
-    background-color: cadetblue;
+a.tag.tag-button.HTML {
+    background-color:#e34c26;
     color: white;
 }
 
