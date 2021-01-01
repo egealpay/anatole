@@ -4,11 +4,13 @@
             <div class="post-title">
                 <h3>{{ .Title }}</h3>
                 {{ if eq .Type "post"}}
-                    <div class="info">
+                    <div style="margin-top:16px">
                         <em class="fas fa-calendar-day"></em>
-                        <span class="date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
-                        <em class="fas fa-stopwatch"></em>
-                        <span class="reading-time">{{ i18n "reading_time" .ReadingTime }}</span>
+                        <span class="date">
+                            {{ $month_names := slice "Ocak" "Şubat" "Mart" "Nisan" "Mayıs" "Haziran" "Temmuz" "Ağustos" "Eylül" "Ekim" "Kasım" "Aralık" }}
+                            {{ $month := sub .Date.Month 1 }}
+                            {{ .Date.Day }} {{ index $month_names $month }} {{ .Date.Year }}
+                        </span>
                     </div>
                 {{ end }}
             </div>
@@ -20,21 +22,8 @@
             {{- end -}}
 
         </div>
-        <div class="post-footer">
-            <div class="info">
-                {{ with .Page.Params.Categories }}{{ partial "taxonomy/categories.html" . }}{{ end }}
-                {{ with .Page.Params.Tags }}{{ partial "taxonomy/tags.html" . }}{{ end }}
-            </div>
-        </div>
 
-        {{ if eq .Type "post"}}
-            {{ if .Site.DisqusShortname -}}
-                <div id="fb_comments_container">
-                    <h2>{{ i18n "comments" }}</h2>
-                    {{ template "_internal/disqus.html" . }}
-                </div>
-            {{- end }}
-        {{ end }}
+        
     </div>
 
 {{ end }}
