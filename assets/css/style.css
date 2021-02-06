@@ -82,6 +82,11 @@ blockquote {
     color: white;
 }
 
+.post .post-footer .meta .info a.tag.tag-button.Kriptografi {
+    background-color: #8946aa;
+    color: white;
+}
+
 a.tag.tag-button {
     padding: 10px;
     border: 1px solid transparent;
@@ -90,6 +95,11 @@ a.tag.tag-button {
 
 a.tag.tag-button.HTML {
     background-color:#e34c26;
+    color: white;
+}
+
+a.tag.tag-button.Kriptografi {
+    background-color:#8946aa;
     color: white;
 }
 
